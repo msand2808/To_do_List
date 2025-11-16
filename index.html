@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card bg-primary rounded">
+            <!-- <div class="card-header">Test</div>-->
+             <div class="card-title pt-4"><h1 class="text-center">Add a New task to ToDo ToDoList</h1></div>
+            <div class="card-body d-flex justify-content-center">
+                <form action="" class="form">
+
+                    <div class="form-group align-items-center d-flex">
+                        <input type="text" id="inputText" class="form-control" placeholder="Enter your task here">
+                        <button type="button" class="btn btn-danger" onclick="addToList()">Add</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="card bg-primary rounded">
+            <div class="card-title pt-4"><h2 class="text-center">ToDoList</h2></div>
+            <div class="card-body d-flex justify-content-center">
+                <table class="table table-hover">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Task</th>
+                            <th>Success</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tableBody" class="text-center">
+                        <!-- Table rows will be added here dynamically -->
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
