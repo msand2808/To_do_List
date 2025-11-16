@@ -1,25 +1,52 @@
+const ul = document.querySelector(".taskList");
+const input = document.getElementById("inputText");
+const btnInput = document.querySelector("#btnInput");
+let empty = document.getElementById("empty");
 
-//addTask("Test");
 
-function addToList(){
-    taskText = document.getElementById("inputText").value;
+document.addEventListener("DOMContentLoaded",() =>{
+    btnInput.addEventListener('click', (e) =>{
+        e.preventDefault();
 
-    addTask(taskText);
-}
+        let li = document.createElement("li");
+        
+        li.textContent= input.value;
+        
+        li.className = "list-group-item d-flex justify-content-between align-items-center my-auto";
 
-function addTask(taskText){
-    const tableBody = document.getElementById("tableBody");
-    const row = document.createElement("tr");
+        li.appendChild(addCompleteButton());
 
-    const task = document.createElement("td");
-    task.textContent = taskText;
+        ul.appendChild(li);
+
+        input.value = "";
+
+        if(ul.childElementCount > 0){
+            empty.style.display = "none";
+            ul.style.display = "block";
+        }
     
-    const success = document.createElement("td");
-    success.textContent = "Not yet";
+    });
+});
 
-    row.appendChild(task);
-    row.appendChild(success);
+function addCompleteButton(){
+        let btnSuccess = document.createElement("button");
 
-    tableBody.appendChild(row);
+        btnSuccess.textContent = "Complete";
+        btnSuccess.className = "btn btn-success buttonDone"
 
+        btnSuccess.addEventListener('click', (e) =>{
+            e.preventDefault();
+            const item = e.target.parentElement;
+
+            ul.removeChild(item);
+
+
+            if(ul.childElementCount == 0){
+                empty.style.display = "block";
+                ul.style.display = "none";
+            }
+
+        });
+
+        return btnSuccess;
 }
