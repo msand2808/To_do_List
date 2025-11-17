@@ -29,8 +29,8 @@ if(tasks.length > 0){
         let li = document.createElement("li");
         
         li.textContent= input.value;
-
         tasks.push(input.value);
+        
         
         localStorage.setItem("tasks", JSON.stringify(tasks));
 
@@ -53,14 +53,14 @@ if(tasks.length > 0){
 function addCompleteButton(){
         let btnSuccess = document.createElement("button");
 
-        btnSuccess.textContent = "Complete";
+        
         btnSuccess.className = "btn btn-success buttonDone"
 
         btnSuccess.addEventListener('click', (e) =>{
             e.preventDefault();
             const item = e.target.parentElement;
-            
-            let index = tasks.indexOf(item.textContent);
+            console.log(item.textContent);
+            let index = tasks.indexOf(item.textContent.replace("Complete", ""));
 
             tasks.splice(index, 1);
 
@@ -76,6 +76,8 @@ function addCompleteButton(){
             }
 
         });
+
+        btnSuccess.textContent = "Complete";
 
         return btnSuccess;
 }
