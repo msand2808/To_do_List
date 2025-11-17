@@ -2,7 +2,7 @@ const ul = document.querySelector(".taskList");
 const input = document.getElementById("inputText");
 const btnInput = document.querySelector("#btnInput");
 let empty = document.getElementById("empty");
-
+const alert = document.getElementById("alert");
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 tasks.forEach((element) => {
@@ -25,6 +25,15 @@ if(tasks.length > 0){
 
     btnInput.addEventListener('click', (e) =>{
         e.preventDefault();
+
+        if(input.value.trim() == ""){
+
+            alert.style.display = "block";
+
+            return;
+        }
+
+        alert.style.display = "none";
 
         let li = document.createElement("li");
         
